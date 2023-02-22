@@ -65,12 +65,13 @@ const Knot: React.FC = (): JSX.Element => {
         if(ref.current) {
             const floor = Math.floor(clock.getElapsedTime());
             const dy = floor%2 === 1 ? 1: -1;
-            ref.current.translateY(dy);
+            const scale = 10;
+            ref.current.translateY(dy * scale);
         }
     })
     return (
         <Suspense>
-            <mesh ref={ref}>
+            <mesh ref={ref} scale={100}>
                 <TorusKnot
                     geometry={geometry} material={material}
                 />
